@@ -4,14 +4,14 @@ public class ListElement {
     public String color;
     public String name;
     public String city;
-    public String status;
+    public String tipo;
 
 
-    public ListElement(String color, String name, String city, String status) {
+    public ListElement(String color, String name, String city, String tipo) {
         this.color = color;
         this.name = name;
         this.city = city;
-        this.status = status;
+        this.tipo = tipo;
     }
 
     public String getColor() {
@@ -38,12 +38,12 @@ public class ListElement {
         this.city = city;
     }
 
-    public String getStatus() {
-        return status;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
 
