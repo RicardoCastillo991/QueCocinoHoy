@@ -24,12 +24,12 @@ public class MainActivityInicio extends AppCompatActivity {
 
     public void init(){
         elements = new ArrayList<>();
-        elements.add(new ListElement("#7754232", "ricardo", "Santiago", "activo"));
-        elements.add(new ListElement("#7754232", "Enyerver", "Santiago", "activo"));
-        elements.add(new ListElement("#7754232", "Pablo", "Santiago", "activo"));
-        elements.add(new ListElement("#7754232", "Pelao", "Santiago", "activo"));
-        elements.add(new ListElement("#7754232", "Deivid", "Puerto Montt", "activo"));
-        elements.add(new ListElement("#7754232", "Pailita", "Puerto Mont", "activo"));
+        elements.add(new ListElement("#7754232", "Omelette", "Huevo, Jamon, Oregano ", "Desayuno"));
+        elements.add(new ListElement("#7754232", "Picante de pollo", "Pollo, Papas, Arverjas, Arroz" , "Almuerzo"));
+        elements.add(new ListElement("#7754232", "Pollo a lo pobre", "Pollo, Cebolla, Papas, Huevo", "Almuerzo"));
+        elements.add(new ListElement("#7754232", "Palta con cebolla", "Palta, Aceite, Cebolla en cuadros, Sal", "Desayuno"));
+        elements.add(new ListElement("#7754232", "Ensalada Cesar", "Pollo, Pan, Lechuga, Queso", "Cena"));
+        elements.add(new ListElement("#7754232", "Crema de zapallo", "Zapallo, Cebolla, Papa, Zanahoria", "Cena"));
 
         ListAdapter listAdapter = new ListAdapter(elements, this);
         RecyclerView recyclerView = findViewById(R.id.listRecicleView);

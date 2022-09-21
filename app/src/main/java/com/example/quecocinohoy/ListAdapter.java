@@ -1,8 +1,6 @@
 package com.example.quecocinohoy;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,19 +40,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView iconImage;
-        TextView name, city, tipo;
+        TextView name, descripcion, tipo;
 
         ViewHolder(View itemView){
             super(itemView);
             iconImage = itemView.findViewById(R.id.iconImageView);
             name = itemView.findViewById(R.id.nameTextView);
-            city = itemView.findViewById(R.id.cityTextView);
-            tipo = itemView.findViewById(R.id.statusTextView);
+            descripcion = itemView.findViewById(R.id.descripcionTextView);
+            tipo = itemView.findViewById(R.id.tipoTextView);
         }
 
         void bindData(final ListElement item){
             name.setText(item.getName());
-            city.setText(item.getCity());
+            descripcion.setText(item.getDescripcion());
             tipo.setText(item.getTipo());
         }
     }
