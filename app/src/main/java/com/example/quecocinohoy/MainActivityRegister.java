@@ -20,6 +20,7 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_register);
         //se va a declarar la parte logica con lo visual.
+        TextView tvEdad = (TextView) findViewById(R.id.tvEdad);
         Spinner spin = (Spinner) findViewById(R.id.spinnerSexo);
         SeekBar seekBarEdad = (SeekBar)findViewById(R.id.seekBar);
         spin.setOnItemSelectedListener(this);
