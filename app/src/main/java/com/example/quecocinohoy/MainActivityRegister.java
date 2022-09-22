@@ -38,7 +38,9 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         seekBarEdad.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                seekBarEdad.setMax(100);
                 tvEdad.setText("Edad : " + i);
+
             }
 
             @Override
