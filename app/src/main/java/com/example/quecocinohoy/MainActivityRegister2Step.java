@@ -30,7 +30,7 @@ public class MainActivityRegister2Step extends AppCompatActivity {
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(txtPass.toString() == txtPassDos.toString()){
+                if(txtPass.toString().equals(txtPassDos.toString())){
                     Intent intento = new Intent(MainActivityRegister2Step.this, MainActivityInicio.class);
                     startActivity(intento);
                 }
