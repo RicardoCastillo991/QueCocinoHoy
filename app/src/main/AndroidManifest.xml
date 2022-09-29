@@ -14,14 +14,17 @@
         android:theme="@style/Theme.QueCocinoHoy"
         tools:targetApi="31">
         <activity
+            android:name=".MainActivityRegister2Step"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivityInicio"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivityRegister"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivitySplash"
             android:exported="true"

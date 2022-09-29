@@ -11,7 +11,7 @@
         android:layout_width="288dp"
         android:layout_height="57dp"
         android:text="¿Que cocino hoy?"
-        android:textColor="@color/black"
+        android:textColor="@color/gris"
         android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
