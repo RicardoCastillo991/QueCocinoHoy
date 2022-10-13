@@ -4,21 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivityInicio extends AppCompatActivity {
-
+    private ImageButton btnProfile;
     List<ListElement> elements;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_inicio);
+        btnProfile = (ImageButton)findViewById(R.id.imgButtonPerfil);
 
         init();
+
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivityInicio.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -36,7 +49,6 @@ public class MainActivityInicio extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(listAdapter);
-
-
     }
+
 }

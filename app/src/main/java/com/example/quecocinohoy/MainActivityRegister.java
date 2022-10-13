@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivityRegister extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private TextView tvEdad;
+    private TextView tvEdad, tvCorreo, tvNombre, tvApellido;
     private SeekBar seekBarEdad;
     String [] sexos = {"Masculino", "Femenino", "No binario", "Otros"};
 

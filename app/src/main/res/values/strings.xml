@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QueCocinoHoy</string>
+    <string name="text_style_bold">bold</string>
+    <string name="font_family">sans-serif-light</string>
 </resources>
