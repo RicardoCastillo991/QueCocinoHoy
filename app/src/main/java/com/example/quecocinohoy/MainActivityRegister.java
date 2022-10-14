@@ -13,11 +13,16 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivityRegister extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private TextView tvEdad, tvCorreo, tvNombre, tvApellido;
+    private TextView tvEdad;
+    private EditText txtNombre, txtApellido, txtCorreo;
     private SeekBar seekBarEdad;
+    int valorSeekBar;
     String [] sexos = {"Masculino", "Femenino", "No binario", "Otros"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +30,13 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         setContentView(R.layout.activity_main_register);
         //se va a declarar la parte logica con lo visual.
         Button btnRegistrar2Step = (Button) findViewById(R.id.btnRegistrarseRegistro);
-        EditText txtCorreoRegister = (EditText) findViewById(R.id.txtCorreoRegister);
-        TextView tvEdad = (TextView) findViewById(R.id.tvEdad);
+        txtCorreo = (EditText) findViewById(R.id.txtCorreoRegister);
+        tvEdad = (TextView) findViewById(R.id.tvEdad);
+        txtNombre = (EditText) findViewById(R.id.txtNombreRegister);
+        txtApellido = (EditText) findViewById(R.id.txtApellidoRegister);
         Spinner spin = (Spinner) findViewById(R.id.spinnerSexo);
         SeekBar seekBarEdad = (SeekBar)findViewById(R.id.seekBar);
 
-        //Agregacion de boton con confirmacion de datos (simulando una base de datos).
-        btnRegistrar2Step.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String correoUsuario;
-                correoUsuario = txtCorreoRegister.getText().toString();
-                if(!(correoUsuario.equals("hola1@gmail.com"))){
-                    Intent intento = new Intent(MainActivityRegister.this, MainActivityRegister2Step.class);
-                    startActivity(intento);
-                    Toast registroExitoso = Toast.makeText(MainActivityRegister.this, "¡Registro casi completado!", Toast.LENGTH_LONG);
-                    registroExitoso.show();
-                }
-                else
-                {
-                    txtCorreoRegister.setText("");
-                    Toast mensajeError = Toast.makeText(MainActivityRegister.this, "¡El correo que ha ingresado ya existe!", Toast.LENGTH_LONG);
-                    mensajeError.show();
-                }
-            }
-        });
 
         spin.setOnItemSelectedListener(this);
         //se llama al adapter para instanciar la lista
@@ -62,10 +49,12 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         //utilizacion del seekbar para saber la edad del usuario.
 
         seekBarEdad.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                seekBarEdad.setMax(100);
-                tvEdad.setText("Edad : " + i);
+                seekBarEdad.setMax(99);
+                valorSeekBar = i + 1;
+                tvEdad.setText("Edad : " + (String.valueOf(valorSeekBar)));
 
             }
 
@@ -80,6 +69,35 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
             }
         });
 
+
+        String correoUsuario = txtCorreo.getText().toString();
+        String edadUsuario = String.valueOf(valorSeekBar);
+        String nombreUsuario = txtNombre.getText().toString();
+        String apellidoUsuario = txtApellido.getText().toString();
+        //Agregacion de boton con confirmacion de datos (simulando una base de datos).
+        btnRegistrar2Step.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!(correoUsuario.equals("hola1@gmail.com"))){
+                    ArrayList<String> datos = new ArrayList<String>();
+                    datos.add(correoUsuario);
+                    datos.add(edadUsuario);
+                    datos.add(nombreUsuario);
+                    datos.add(apellidoUsuario);
+                    Intent intento = new Intent(MainActivityRegister.this, MainActivityRegister2Step.class);
+                    intento.putExtra("datos", datos);
+                    startActivity(intento);
+                    Toast registroExitoso = Toast.makeText(MainActivityRegister.this, "¡Registro casi completado!", Toast.LENGTH_LONG);
+                    registroExitoso.show();
+                }
+                else
+                {
+                    txtCorreo.setText("");
+                    Toast mensajeError = Toast.makeText(MainActivityRegister.this, "¡El correo que ha ingresado ya existe!", Toast.LENGTH_LONG);
+                    mensajeError.show();
+                }
+            }
+        });
     }
 
     @Override
@@ -91,5 +109,6 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
 
 }

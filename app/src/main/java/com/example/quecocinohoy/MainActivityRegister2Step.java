@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
@@ -12,18 +13,23 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivityRegister2Step extends AppCompatActivity {
     private Button btnInicio;
     private ImageButton btnMostrarPass;
+    private EditText txtPass, txtPassDos;
     private boolean visible = false;
+    List<String> datos = (ArrayList<String>) getIntent().getStringArrayListExtra("datos");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_register2_step);
-        Button btnInicio = (Button) findViewById(R.id.btnInicio);
+        btnInicio = (Button) findViewById(R.id.btnInicio);
         btnMostrarPass = (ImageButton)findViewById(R.id.imgbtnMostrarPass);
-        EditText txtPass = (EditText) findViewById(R.id.txtPassRegister);
-        EditText txtPassDos = (EditText) findViewById(R.id.txtPassDosRegister);
+        txtPass = (EditText) findViewById(R.id.txtPassRegister);
+        txtPassDos = (EditText) findViewById(R.id.txtPassDosRegister);
 
 
         btnMostrarPass.setOnClickListener(new View.OnClickListener() {
@@ -45,15 +51,24 @@ public class MainActivityRegister2Step extends AppCompatActivity {
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(txtPass.toString().equals(txtPassDos.toString())){
-                    Intent intento = new Intent(MainActivityRegister2Step.this, MainActivityInicio.class);
-                    startActivity(intento);
+                if(!(txtPass.getText().toString().equals("") && txtPassDos.getText().toString().equals(""))){
+                    if(txtPass.getText().toString() == txtPassDos.getText().toString()){
+                        String passUsuario = txtPass.getText().toString();
+                        datos.add(passUsuario);
+                        Intent intento = new Intent(MainActivityRegister2Step.this, MainActivityInicio.class);
+                        intento.putExtra("datos", (Parcelable) datos);
+                        startActivity(intento);
+                    }
+                    else
+                    {
+                        txtPass.setText("");
+                        txtPassDos.setText("");
+                        Toast mensajeError = Toast.makeText(MainActivityRegister2Step.this, "¡Las contraseñas deben ser iguales!", Toast.LENGTH_LONG);
+                        mensajeError.show();
+                    }
                 }
-                else
-                {
-                    txtPass.setText("");
-                    txtPassDos.setText("");
-                    Toast mensajeError = Toast.makeText(MainActivityRegister2Step.this, "¡Las contraseñas deben ser iguales!", Toast.LENGTH_LONG);
+                else{
+                    Toast mensajeError = Toast.makeText(MainActivityRegister2Step.this, "¡Para registrarse debe ingresar una contraseña!", Toast.LENGTH_LONG);
                     mensajeError.show();
                 }
             }

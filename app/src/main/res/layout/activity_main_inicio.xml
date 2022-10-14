@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gris"
     tools:context=".MainActivityInicio">
 
     <TextView
@@ -11,7 +12,7 @@
         android:layout_width="288dp"
         android:layout_height="57dp"
         android:text="¿Que cocino hoy?"
-        android:textColor="@color/gris"
+        android:textColor="@color/verde"
         android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
