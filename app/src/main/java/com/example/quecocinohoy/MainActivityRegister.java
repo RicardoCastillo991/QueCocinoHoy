@@ -14,7 +14,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivityRegister extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private TextView tvEdad;
@@ -22,7 +21,6 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
     private SeekBar seekBarEdad;
     int valorSeekBar;
     String [] sexos = {"Masculino", "Femenino", "No binario", "Otros"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         txtApellido = (EditText) findViewById(R.id.txtApellidoRegister);
         Spinner spin = (Spinner) findViewById(R.id.spinnerSexo);
         SeekBar seekBarEdad = (SeekBar)findViewById(R.id.seekBar);
-
+        ArrayList<String> datos = new ArrayList<String>();
 
         spin.setOnItemSelectedListener(this);
         //se llama al adapter para instanciar la lista
@@ -79,14 +77,14 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
             @Override
             public void onClick(View view) {
                 if(!(correoUsuario.equals("hola1@gmail.com"))){
-                    ArrayList<String> datos = new ArrayList<String>();
                     datos.add(correoUsuario);
                     datos.add(edadUsuario);
                     datos.add(nombreUsuario);
                     datos.add(apellidoUsuario);
-                    Intent intento = new Intent(MainActivityRegister.this, MainActivityRegister2Step.class);
-                    intento.putExtra("datos", datos);
-                    startActivity(intento);
+                    Intent intent = new Intent(MainActivityRegister.this, MainActivityRegister2Step.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putStringArrayList("datos", datos);
+                    startActivity(intent);
                     Toast registroExitoso = Toast.makeText(MainActivityRegister.this, "¡Registro casi completado!", Toast.LENGTH_LONG);
                     registroExitoso.show();
                 }
