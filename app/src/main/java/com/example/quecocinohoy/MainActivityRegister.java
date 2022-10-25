@@ -28,12 +28,12 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         setContentView(R.layout.activity_main_register);
         //se va a declarar la parte logica con lo visual.
         Button btnRegistrar2Step = (Button) findViewById(R.id.btnRegistrarseRegistro);
-        txtCorreo = (EditText) findViewById(R.id.txtCorreoRegister);
-        tvEdad = (TextView) findViewById(R.id.tvEdad);
-        txtNombre = (EditText) findViewById(R.id.txtNombreRegister);
-        txtApellido = (EditText) findViewById(R.id.txtApellidoRegister);
+        txtCorreo = findViewById(R.id.txtCorreoRegister);
+        tvEdad = findViewById(R.id.tvEdad);
+        txtNombre = findViewById(R.id.txtNombreRegister);
+        txtApellido = findViewById(R.id.txtApellidoRegister);
         Spinner spin = (Spinner) findViewById(R.id.spinnerSexo);
-        SeekBar seekBarEdad = (SeekBar)findViewById(R.id.seekBar);
+        seekBarEdad = findViewById(R.id.seekBar);
         ArrayList<String> datos = new ArrayList<String>();
 
         spin.setOnItemSelectedListener(this);
@@ -72,15 +72,17 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
         String edadUsuario = String.valueOf(valorSeekBar);
         String nombreUsuario = txtNombre.getText().toString();
         String apellidoUsuario = txtApellido.getText().toString();
+        String sexoUsuario = spin.getOnItemSelectedListener().toString();
         //Agregacion de boton con confirmacion de datos (simulando una base de datos).
         btnRegistrar2Step.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!(correoUsuario.equals("hola1@gmail.com"))){
-                    datos.add(correoUsuario);
-                    datos.add(edadUsuario);
                     datos.add(nombreUsuario);
                     datos.add(apellidoUsuario);
+                    datos.add(correoUsuario);
+                    datos.add(edadUsuario);
+                    datos.add(sexoUsuario);
                     Intent intent = new Intent(MainActivityRegister.this, MainActivityRegister2Step.class);
                     Bundle bundle = new Bundle();
                     bundle.putStringArrayList("datos", datos);

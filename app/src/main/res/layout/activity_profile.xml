@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_profile"
+    android:background="@drawable/background_profilev2"
 
     tools:context=".ProfileActivity">
 
@@ -15,6 +15,7 @@
         android:fontFamily="@string/font_family"
         android:text="nombre: "
         android:textStyle="italic"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.223"
@@ -29,13 +30,14 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@string/font_family"
         android:text="Correo Electronico: "
+        android:textSize="18dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtProfileNombre"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.079" />
 
     <TextView
         android:id="@+id/txtProfileEdad"
@@ -44,13 +46,14 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@string/font_family"
         android:text="Edad: "
+        android:textSize="18dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtProfileCorreo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.124" />
 
     <TextView
         android:id="@+id/txtProfileSexo"
@@ -59,13 +62,14 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@string/font_family"
         android:text="Sexo: "
+        android:textSize="18dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtProfileEdad"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.075" />
 
     <TextView
         android:id="@+id/txtProfileComidaFav"
@@ -74,12 +78,13 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@string/font_family"
         android:text="Comida Favorita: "
+        android:textSize="18dp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintHorizontal_bias="0.258"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtProfileSexo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.069" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

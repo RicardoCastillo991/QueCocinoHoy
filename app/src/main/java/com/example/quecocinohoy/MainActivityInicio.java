@@ -30,6 +30,8 @@ public class MainActivityInicio extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivityInicio.this, ProfileActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putStringArrayList("datosProfile", datosProfile);
                 startActivity(intent);
             }
         });
