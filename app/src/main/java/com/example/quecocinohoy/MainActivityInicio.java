@@ -13,25 +13,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivityInicio extends AppCompatActivity {
-    private ImageButton btnProfile;
+    private ImageButton btnProfile, btnMap;
     List<ListElement> elements;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_inicio);
+        btnMap = (ImageButton)findViewById(R.id.imgButtonUbicacion);
         btnProfile = (ImageButton)findViewById(R.id.imgButtonPerfil);
-        ArrayList<String> datosProfile = getIntent().getStringArrayListExtra("datosCompletos");
         init();
 
-
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivityInicio.this , MapActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivityInicio.this, ProfileActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putStringArrayList("datosProfile", datosProfile);
                 startActivity(intent);
             }
         });
