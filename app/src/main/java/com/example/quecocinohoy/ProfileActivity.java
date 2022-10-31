@@ -20,8 +20,5 @@ public class ProfileActivity extends AppCompatActivity {
         tvEdad =(TextView)findViewById(R.id.txtProfileEdad);
         tvSexo =(TextView)findViewById(R.id.txtProfileSexo);
         tvComidaFav =(TextView)findViewById(R.id.txtProfileComidaFav);
-        ArrayList<String> datosProfile = getIntent().getStringArrayListExtra("datosCompletos");
-
-        tvNombre.setText("Nombre: "+ datosProfile.get(1) + " " + datosProfile.get(2));
     }
 }

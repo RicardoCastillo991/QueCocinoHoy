@@ -78,14 +78,19 @@ public class MainActivityRegister extends AppCompatActivity implements AdapterVi
             @Override
             public void onClick(View view) {
                 if(!(correoUsuario.equals("hola1@gmail.com"))){
-                    datos.add(nombreUsuario);
-                    datos.add(apellidoUsuario);
-                    datos.add(correoUsuario);
-                    datos.add(edadUsuario);
-                    datos.add(sexoUsuario);
-                    Intent intent = new Intent(MainActivityRegister.this, MainActivityRegister2Step.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putStringArrayList("datos", datos);
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            datos.add(nombreUsuario);
+                            datos.add(apellidoUsuario);
+                            datos.add(correoUsuario);
+                            datos.add(edadUsuario);
+                            datos.add(sexoUsuario);
+                            Bundle bundle = new Bundle();
+                            bundle.putStringArrayList("datos", datos);
+                        }
+                    });
+                    Intent intent = new Intent(MainActivityRegister.this , MainActivityRegister2Step.class);
                     startActivity(intent);
                     Toast registroExitoso = Toast.makeText(MainActivityRegister.this, "¡Registro casi completado!", Toast.LENGTH_LONG);
                     registroExitoso.show();

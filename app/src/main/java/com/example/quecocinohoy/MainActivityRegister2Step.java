@@ -2,10 +2,12 @@ package com.example.quecocinohoy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.Vibrator;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
@@ -60,6 +62,8 @@ public class MainActivityRegister2Step extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         bundle.putStringArrayList("datosCompletos", datosCompletos);
                         bundle.putStringArrayList("passUsuario", ArrayPassUsuario);
+                        Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                        vibrator.vibrate(1500);
                         startActivity(intent);
                     }
                     else
