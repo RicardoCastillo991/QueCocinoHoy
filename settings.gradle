@@ -4,4 +4,7 @@ pluginManagement {
         google()
         mavenCentral()
     }
+    rootProject.name = "QueCocinoHoy"
+    include ':app'
+
 }
