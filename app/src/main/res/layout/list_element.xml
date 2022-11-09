@@ -65,8 +65,8 @@
 
             <TextView
                 android:id="@+id/tipoTextView"
-                android:layout_width="67dp"
-                android:layout_height="27dp"
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
